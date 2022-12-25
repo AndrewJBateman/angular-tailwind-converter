@@ -1,8 +1,7 @@
 <head>
-    <meta
-      name="description"
-      content="Home page shows commercial establishments near to RATP stations"
-    />
-    X-Frame-Options="SAMEORIGIN"
-  </head>
-<p>test</p>  
+  <meta name="description" content="Component showing list of currency values against base currency" />
+  X-Frame-Options="SAMEORIGIN"
+</head>
+<div *ngFor="let curr of (rates$ | async) | keyvalue">
+  <p>{{ curr.key }} is {{ curr.value }}</p>
+</div>
