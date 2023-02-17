@@ -36,6 +36,7 @@
 
 * [Angular framework v15](https://angular.io/)
 * [SCSS/SASS](https://sass-lang.com/) CSS extension language
+* [Tailwindcss v3](https://tailwindcss.com/) CSS framework
 
 ## :floppy_disk: Setup
 
@@ -68,11 +69,11 @@ tba
 
 ## :clap: Inspiration/General Tools
 
-* [tba](tba)
+* [Install Tailwind CSS with Angular](https://tailwindcss.com/docs/guides/angular)
 
 ## :file_folder: License
 
-* MIT
+* This project is licensed under the terms of the MIT license.
 
 ## :envelope: Contact
 

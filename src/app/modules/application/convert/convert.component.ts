@@ -15,6 +15,7 @@ export class ConvertComponent implements OnInit {
   rates$: Observable<Rates> = new Observable<{
     [key: string]: number;
   }>;
+  result: number = 0;
   // currencies$: Observable<ApiResponse> = new Observable<{
   //   motd: {
   //     msg: '',
@@ -36,17 +37,26 @@ export class ConvertComponent implements OnInit {
 
   onChangeAmount(amount: number) {
     console.log("amount", amount);
+    return this.convAmount = amount;
   }
 
-  onChangeOrigCurrency(convAmount: string) {
-
+  onChangeOrigCurrency(value: string): string {
+    return this.origCurrency = value;
   }
 
-  onChangeDestCurrency(convAmount: string) {
-
+  onChangeDestCurrency(value: string): string {
+    return this.destCurrency = value;
   }
 
   getValue(event: Event): string {
     return (event.target as HTMLInputElement).value;
+  }
+
+  convertCurrency() {
+    console.log('values: ', this.origCurrency, this.destCurrency, this.convAmount);
+
+  // service to fetch exchange rate for currency selected
+
+    this.result = this.convAmount * 10;
   }
 }

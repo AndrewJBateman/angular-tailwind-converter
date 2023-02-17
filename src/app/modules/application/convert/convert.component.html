@@ -7,16 +7,21 @@
 </div> -->
 <div class="converter">
   <div class="converter__group">
-    <input type="text" [(ngModel)]="convAmount" (change)="onChangeAmount(+getValue($event))">
-    <select [value]="origCurrency" (change)="onChangeOrigCurrency(getValue($event))">
+    <input type="text" [(ngModel)]="convAmount" (change)="onChangeAmount(+getValue($event)); convertCurrency()">
+    <br />
+    <select [value]="origCurrency" (change)="onChangeOrigCurrency(getValue($event)); convertCurrency()">
       <option *ngFor="let curr of (rates$ | async) | keyvalue">{{ curr.key }}</option>
     </select>
   </div>
+  <br />
   <div class="converter__group">
     <!-- <input type="text" [(ngModel)]="convAmount" (change)="onChangeOrigCurrency(+getValue($event))"> -->
-    <select [value]="destCurrency" (change)="onChangeDestCurrency(getValue($event))">
+    <select [value]="destCurrency" (change)="onChangeDestCurrency(getValue($event)); convertCurrency()">
       <option *ngFor="let curr of (rates$ | async) | keyvalue">{{ curr.key }}</option>
     </select>
   </div>
+  <br />
+  <p>{{ convAmount }} {{ origCurrency }} = {{ result }} {{ destCurrency }}</p>
+
 
 </div>
