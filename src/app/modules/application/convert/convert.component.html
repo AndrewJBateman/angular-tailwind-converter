@@ -2,6 +2,21 @@
   <meta name="description" content="Component showing list of currency values against base currency" />
   X-Frame-Options="SAMEORIGIN"
 </head>
-<div *ngFor="let curr of (rates$ | async) | keyvalue">
+<!-- <div *ngFor="let curr of (rates$ | async) | keyvalue">
   <p>{{ curr.key }} is {{ curr.value }}</p>
+</div> -->
+<div class="converter">
+  <div class="converter__group">
+    <input type="text" [(ngModel)]="convAmount" (change)="onChangeAmount(+getValue($event))">
+    <select [value]="origCurrency" (change)="onChangeOrigCurrency(getValue($event))">
+      <option *ngFor="let curr of (rates$ | async) | keyvalue">{{ curr.key }}</option>
+    </select>
+  </div>
+  <div class="converter__group">
+    <!-- <input type="text" [(ngModel)]="convAmount" (change)="onChangeOrigCurrency(+getValue($event))"> -->
+    <select [value]="destCurrency" (change)="onChangeDestCurrency(getValue($event))">
+      <option *ngFor="let curr of (rates$ | async) | keyvalue">{{ curr.key }}</option>
+    </select>
+  </div>
+
 </div>

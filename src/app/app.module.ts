@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './modules/common/nav/nav.component';
 import { ConvertComponent } from './modules/application/convert/convert.component';
 import { NotFoundComponent } from './modules/common/not-found/not-found.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NotFoundComponent } from './modules/common/not-found/not-found.componen
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, HttpClientModule
+    AppRoutingModule, HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
