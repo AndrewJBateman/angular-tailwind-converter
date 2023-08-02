@@ -13,11 +13,6 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/common/about/about.module'),
   },
-  {
-    path: 'chat',
-    loadChildren: () =>
-      import('./modules/application/chat/chat.module'),
-  },
   { path: '**', component: NotFoundComponent },
 ];
 
