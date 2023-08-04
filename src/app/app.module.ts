@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './modules/common/nav/nav.component';
 import { ConvertComponent } from './modules/application/convert/convert.component';
 import { NotFoundComponent } from './modules/common/not-found/not-found.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,6 +20,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule, HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
