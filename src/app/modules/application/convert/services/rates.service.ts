@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, map, tap } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
-import { Currencies } from '../models/currency';
+import { Currencies, Rate, FormData } from '../models/currency';
 
 @Injectable({
   providedIn: 'root',
@@ -10,13 +10,13 @@ import { Currencies } from '../models/currency';
 export class RatesService {
   apiUrl = '';
   apiKey = '';
-  price: BehaviorSubject<any> | undefined;
+  rate: BehaviorSubject<any> | undefined;
   display: BehaviorSubject<boolean> | undefined;
 
   constructor(private http: HttpClient) {
     this.apiUrl = environment.apiUrl;
     this.apiKey = environment.apiKey;
-    this.price = new BehaviorSubject<any>({});
+    this.rate = new BehaviorSubject<any>({});
     this.display = new BehaviorSubject<boolean>(false);
   }
 
@@ -30,5 +30,25 @@ export class RatesService {
         map((currencies) => currencies.conversion_rates),
         map((abv) => Object.keys(abv))
       );
+  }
+
+  convertCurrency(formData: FormData): Observable<Rate> {
+    const { amount, currency1, currency2 } = formData;
+    return this.http.get<Rate>(
+      `${this.apiUrl}${this.apiKey}/pair/${currency1}/${currency2}/${amount}`
+    );
+  }
+
+  setRate(rate: Rate): void {
+    if (this.rate) {
+      this.rate.next(rate);
+    }
+  }
+
+  getRate(): Observable<Rate> | undefined {
+    if (this.rate) {
+      return this.rate.asObservable();
+    }
+    return undefined;
   }
 }

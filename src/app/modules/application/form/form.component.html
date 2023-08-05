@@ -1,0 +1,73 @@
+<form
+  [formGroup]="formChanges"
+  #formDirective="ngForm"
+  (ngSubmit)="onSubmitForm()"
+>
+  <div class="flex flex-wrap mb-2 -mx-3">
+    <div class="w-full px-3 mb-6 md:w-1/4 md:mb-0">
+      <label
+        class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase"
+        for="currency"
+      >
+        Amount:
+      </label>
+      <input
+        class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
+        type="number"
+        formControlName="amount"
+        #amount
+      />
+    </div>
+    <div class="w-full px-3 mb-6 md:w-1/4 md:mb-0">
+      <label
+        class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase"
+        for="currency"
+        >From:
+      </label>
+      <div class="relative">
+        <select
+          class="block w-full px-4 py-3 pr-8 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
+          id="currency1"
+          formControlName="currency1"
+          required
+        >
+          <option
+            *ngFor="let currency of currencies$ | async"
+            [label]="currency"
+            [value]="currency"
+          ></option>
+        </select>
+      </div>
+    </div>
+
+    <div class="w-full px-3 mb-6 md:w-1/4 md:mb-0">
+      <label
+        class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase"
+        for="currency"
+        >to:
+      </label>
+      <select
+        class="block w-full px-4 py-3 pr-8 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
+        id="currency2"
+        formControlName="currency2"
+        required
+      >
+        <option
+          *ngFor="let currency of currencies$ | async"
+          [value]="currency"
+          [label]="currency"
+        ></option>
+      </select>
+    </div>
+    <div class="w-full p-0 px-3 pt-6 md:w-1/4 md:mb-0">
+      <button
+        class="px-4 py-2 font-bold text-white bg-purple-500 rounded shadow hover:bg-purple-400 focus:shadow-outline focus:outline-none"
+        type="submit"
+        [disabled]="!formChanges.valid"
+        aria-label="Convert button"
+      >
+        Convert
+      </button>
+    </div>
+  </div>
+</form>
