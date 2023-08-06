@@ -32,7 +32,7 @@
           required
         >
           <option
-            *ngFor="let currency of currencies$ | async"
+            *ngFor="let currency of currencyListData()"
             [label]="currency"
             [value]="currency"
           ></option>
@@ -53,7 +53,7 @@
         required
       >
         <option
-          *ngFor="let currency of currencies$ | async"
+          *ngFor="let currency of currencyListData()"
           [value]="currency"
           [label]="currency"
         ></option>
