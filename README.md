@@ -1,6 +1,6 @@
 # :zap: Angular Tailwind Converter
 
-* Angular app with Tailwind styles to display currency conversion data.
+* Angular app using RxJS, ng signals and Tailwind styles to display API currency conversion data.
 * **Note:** to open web links in a new window use: _ctrl+click on link_
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/AndrewJBateman/angular-tailwind-converter?style=plastic)
@@ -26,23 +26,29 @@
 
 ## :books: General info
 
-* tba
+* Angular Signals used to track state of exchange rate data
+* ExchangeRate-API data from [Standard Requests](https://www.exchangerate-api.com/docs/standard-requests) and [Pair Conversion Requests](https://www.exchangerate-api.com/docs/pair-conversion-requests) endpoints
+* API date converted using [Angular DatePipe](https://angular.io/api/common/DatePipe)
+* ISO 4217 Three Letter Currency Codes used - e.g. USD for US Dollars, EUR for Euro
 
 ## :camera: Screenshots
 
-![Frontend screenshot](./imgs/data.png)
+![Frontend screenshot](./imgs/convert.png)
+![Frontend screenshot](./imgs/about.png)
 
 ## :signal_strength: Technologies
 
-* [Angular framework v15](https://angular.io/)
-* [SCSS/SASS](https://sass-lang.com/) CSS extension language
+* [Angular framework v16](https://angular.io/)
 * [Tailwindcss v3](https://tailwindcss.com/) CSS framework
+* [RxJS](https://www.learnrxjs.io/learn-rxjs/operators/transformation/map) map function used to extract just the API currency info needed
+* [ExchangeRate-API v6](https://www.exchangerate-api.com/) for currency conversion data
+* [quicktype](https://app.quicktype.io/) used to create typescript interface types
 
 ## :floppy_disk: Setup
 
 * Install dependencies using `npm i`
+* Obtain an API key from [https://www.exchangerate-api.com/](https://www.exchangerate-api.com/) and add to environment file or direct into code if no environment file
 * Run `ng serve` for a non-SSR dev server. Frontend will open at `http://localhost:4200/` - refreshes on code changes
-* Run `npm run lint` to lint test entire codebase using ESLint.
 * Run `npm run build` to generate a build file without SSR
 
 ## :wrench: Testing
@@ -51,21 +57,31 @@
 
 ## :computer: Code Examples
 
-* `tba` tba
+* `rates.service.ts` function to extract a list of currencies from API data
 
 ```typescript
-tba
+  // Fetch API data for list of currencies then use RxJS map
+  // to extract only list of currencies then again to extract
+  // Object keys then convert to a signal to be accessed by form page
+  private currencyList$ = this.http
+    .get<Currencies>(`${this.apiUrl}${this.apiKey}/latest/EUR`)
+    .pipe(
+      map((currencies) => currencies.conversion_rates),
+      map((key) => Object.keys(key))
+    );
+  currencyListData = toSignal(this.currencyList$, { initialValue: [] });
 ```
 
 ## :cool: Features
 
-* tba
+* Using standalone components and ng signals reduces code
+* Tailwind styles also reduces build bundle size
 
 ## :clipboard: Status, Testing & To-Do List
 
-* Status: In work
+* Status: Working
 * Testing: n/a
-* To-Do: tba
+* To-Do: Nothing
 
 ## :clap: Inspiration/General Tools
 
