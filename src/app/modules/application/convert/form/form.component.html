@@ -71,3 +71,7 @@
     </div>
   </div>
 </form>
+
+<div *ngIf="currencyRate$ | async as rate">
+  <app-results [rate]="rate" [display]="true" [amountConverted]="amountConverted"/>
+</div>

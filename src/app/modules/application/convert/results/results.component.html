@@ -1,0 +1,17 @@
+<div *ngIf="display">
+  <a
+    class="block max-w-sm p-6 mt-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+  >
+    <h5 class="text-green-600 dark:text-gray-400">{{ rate.result }}</h5>
+    <h6
+      class="font-bold tracking-tight text-gray-900 dark:text-white"
+    >
+      {{ amountConverted }} {{ rate.base_code }} = {{ rate.conversion_result }}
+      {{ rate.target_code }}
+    </h6>
+    <p class="text-blue-600 dark:text-gray-400">
+      Updated: {{ rate.time_last_update_utc | date : "medium" }}
+    </p>
+  </a>
+  <!-- </div> -->
+</div>

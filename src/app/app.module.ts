@@ -7,8 +7,8 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './modules/common/nav/nav.component';
 import { ConvertComponent } from './modules/application/convert/convert.component';
 import { NotFoundComponent } from './modules/common/not-found/not-found.component';
-import { FormComponent } from './modules/application/form/form.component';
-import { ResultsComponent } from "./modules/application/results/results.component";
+import { FormComponent } from './modules/application/convert/form/form.component';
+import { ResultsComponent } from "./modules/application/convert/results/results.component";
 
 @NgModule({
     declarations: [
