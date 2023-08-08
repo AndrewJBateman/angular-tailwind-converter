@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   template: `<div class="app">
   <app-nav></app-nav>
   <main>
-    <div class="container-fluid">
+    <div class="container-fluid theme-color">
       <router-outlet></router-outlet>
     </div>
   </main>
