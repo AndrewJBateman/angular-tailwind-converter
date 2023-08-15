@@ -34,7 +34,7 @@
 ## :camera: Screenshots
 
 | ![Frontend screenshot](./imgs/convert.png) | ![Frontend screenshot](./imgs/about.png) |
-| :----------------------------: | :----------------------------: | :---------------------------------------: |
+| :----------------------------: | :----------------------------: |
 |        Converter page       |       About page        |
 
 ## :signal_strength: Technologies
