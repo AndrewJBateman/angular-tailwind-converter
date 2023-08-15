@@ -33,8 +33,9 @@
 
 ## :camera: Screenshots
 
-![Frontend screenshot](./imgs/convert.png)
-![Frontend screenshot](./imgs/about.png)
+| ![Frontend screenshot](./imgs/convert.png) | ![Frontend screenshot](./imgs/about.png) |
+| :----------------------------: | :----------------------------: | :---------------------------------------: |
+|        Converter page       |       About page        |
 
 ## :signal_strength: Technologies
 
@@ -42,7 +43,7 @@
 * [Tailwindcss v3](https://tailwindcss.com/) CSS framework
 * [RxJS](https://www.learnrxjs.io/learn-rxjs/operators/transformation/map) map function used to extract just the API currency info needed
 * [ExchangeRate-API v6](https://www.exchangerate-api.com/) for currency conversion data
-* [quicktype](https://app.quicktype.io/) used to create typescript interface types
+* [Quicktype](https://app.quicktype.io/) used to create typescript interface types
 
 ## :floppy_disk: Setup
 
